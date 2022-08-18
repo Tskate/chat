@@ -1,0 +1,22 @@
+@use '../../../assets/styles/mixin.module' as mixin;
+@use '../../../assets/styles/variable.module' as var;
+
+.input {
+  width: 100%;
+  height: 50px;
+  padding: 15px;
+  border-radius: 20px;
+  border: 1px solid var.$border-color;
+  background-color: var.$adding-background-color;
+  @include mixin.flex-centering;
+  color: var.$border-color;
+  input{
+    width: 100%;
+    &::placeholder{
+      color: var.$border-color;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+}

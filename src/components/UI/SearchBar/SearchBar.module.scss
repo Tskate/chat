@@ -1,0 +1,29 @@
+@use "../../../assets/styles/variable.module" as var;
+@use "../../../assets/styles/mixin.module" as mixin;
+
+.searchBar {
+  height: 35px;
+  border-radius: 20px;
+  border: 1px solid var.$border-color;
+  background-color: var.$adding-background-color;
+  padding: 5px 10px;
+  @include mixin.flex-centering;
+  gap: 10px;
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    @include mixin.flex-centering;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+  input {
+    width: 100%;
+    font-size: 16px;
+    &:focus {
+      outline: none;
+    }
+  }
+}

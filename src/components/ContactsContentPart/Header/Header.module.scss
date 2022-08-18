@@ -1,0 +1,13 @@
+@use '../../../assets/styles/variable.module'as var;
+@use '../../../assets/styles/mixin.module' as mixin;
+
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  @include mixin.contacts-content-padding;
+  @include mixin.border-bottom;
+  background-color: var.$main-background-color;
+}
