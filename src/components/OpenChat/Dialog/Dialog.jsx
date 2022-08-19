@@ -2,11 +2,18 @@ import React from "react";
 import style from "./Dialog.module.scss";
 import Message from "../../Message/Message";
 
-const Dialog = () => {
+const Dialog = ({ icon, dialog }) => {
   return (
     <div className={style.content}>
-      <Message text={"Hello"} isReceived={true} />
-      <Message text={"Hello jjkkkkkkkkk"} isReceived={false} />
+      {dialog.map((msg) => (
+        <Message
+          key={msg.date}
+          userIcon={icon}
+          text={msg.text}
+          date={msg.date}
+          isReceived={msg.isReceived}
+        />
+      ))}
     </div>
   );
 };

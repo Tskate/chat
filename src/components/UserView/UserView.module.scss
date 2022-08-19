@@ -1,5 +1,5 @@
-@use '../../../assets/styles/mixin.module' as mixin;
-@use '../../../assets/styles/variable.module' as var;
+@use '../../assets/styles/mixin.module' as mixin;
+@use '../../assets/styles/variable.module' as var;
 
 .container {
   @include mixin.flex-centering;
@@ -17,15 +17,5 @@
       font-size: 16px;
       color: var.$user-name-text-color;
     }
-    .lastMsg {
-      font-size: 14px;
-      color: var.$border-color;
-    }
-  }
-  .date {
-    font-size: 12px;
-    min-width: 70px;
-    color: #4f4f4e;
-    align-self: flex-start;
   }
 }
