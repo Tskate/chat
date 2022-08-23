@@ -1,16 +1,14 @@
 import React from "react";
 import ChatView from "../ChatView/ChatView";
 import style from "./ChatList.module.scss";
+import { chatSorting } from "../../../utils/helpers/chatSorting";
 
-const ChatList = () => {
+const ChatList = ({ chats }) => {
   return (
     <div className={style.content}>
-      <ChatView />
-      <ChatView />
-      <ChatView />
-      <ChatView />
-      <ChatView />
-      <ChatView />
+      {chatSorting(chats).map((chat) => (
+        <ChatView userId={chat.id} key={chat.id} />
+      ))}
     </div>
   );
 };

@@ -1,20 +1,33 @@
 import React from "react";
 import style from "./Message.module.scss";
+import { displayMsgDateAndTime } from "../../utils/helpers/displayMsgDateAndTime";
+import UserIcon from "../UI/UserIcon/UserIcon";
 
-const Message = ({ text, isReceived }) => {
+const Message = ({ userIcon, text, date, isReceived }) => {
   return (
-    <div
-      className={style.wrapper}
-      style={!isReceived ? { direction: "rtl" } : {}}
-    >
+    <div className={style.wrapper}>
       <div
-        className={`${style.container} ${
-          isReceived ? style.received : style.sent
-        }`}
+        style={
+          isReceived
+            ? { display: "flex", justifyContent: "flex-start", height: "100%" }
+            : { display: "none" }
+        }
       >
-        {text}
+        <UserIcon icon={userIcon} />
       </div>
-      <div className={style.date}>4/22/17, 4:10 AM</div>
+      <div
+        className={style.msg}
+        style={!isReceived ? { alignItems: "flex-end" } : {}}
+      >
+        <div
+          className={`${style.container} ${
+            isReceived ? style.received : style.sent
+          }`}
+        >
+          {text}
+        </div>
+        <div className={style.date}>{displayMsgDateAndTime(date)}</div>
+      </div>
     </div>
   );
 };
