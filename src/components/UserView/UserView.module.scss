@@ -1,0 +1,21 @@
+@use '../../assets/styles/mixin.module' as mixin;
+@use '../../assets/styles/variable.module' as var;
+
+.container {
+  @include mixin.flex-centering;
+  @include mixin.contacts-content-padding;
+  gap: 10px;
+  border-bottom: 1px solid var.$border-color;
+  .body {
+    flex-grow: 1;
+    @include mixin.flex-centering;
+    flex-direction: column;
+    align-items: flex-start;
+    font-weight: 300;
+
+    .userName {
+      font-size: 16px;
+      color: var.$user-name-text-color;
+    }
+  }
+}

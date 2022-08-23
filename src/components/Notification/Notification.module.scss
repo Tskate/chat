@@ -1,0 +1,32 @@
+@use '../../assets/styles/variable.module' as var;
+@use '../../assets/styles/mixin.module' as mixin;
+
+.container {
+  width: 270px;
+  height: 90px;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow:  1px 0px 15px 0px rgba(79, 79, 78, 0.75);
+  @include mixin.flex-centering;
+  flex-direction: column;
+  gap: 2px;
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+  .body {
+    @include mixin.flex-centering;
+    gap: 10px;
+    .content {
+      flex-grow: 1;
+      width: 200px;
+      .name {
+        font-size: 16px;
+        color: var.$user-name-text-color;
+      }
+      .msgText{
+        @include mixin.message-preview;
+      }
+    }
+  }
+}

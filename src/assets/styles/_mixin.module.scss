@@ -12,3 +12,15 @@
 @mixin border-bottom() {
   border-bottom: 1px solid var.$border-color;
 }
+
+@mixin message-preview() {
+  font-size: 14px;
+  color: var.$border-color;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
