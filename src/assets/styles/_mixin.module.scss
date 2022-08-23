@@ -1,0 +1,14 @@
+@use 'variable.module' as var;
+@mixin flex-centering() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin contacts-content-padding() {
+  padding: 20px 15px 20px 10px;
+}
+
+@mixin border-bottom() {
+  border-bottom: 1px solid var.$border-color;
+}

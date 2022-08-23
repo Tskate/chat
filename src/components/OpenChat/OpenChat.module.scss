@@ -1,0 +1,24 @@
+@use '../../assets/styles/mixin.module' as mixin;
+@use '../../assets/styles/variable.module' as var;
+.container {
+  @include mixin.flex-centering;
+  flex-direction: column;
+  border-left: 1px solid var.$border-color;
+  .header {
+    @include mixin.flex-centering;
+    @include mixin.border-bottom;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 15px 20px;
+    background-color: var.$main-background-color;
+    .userName {
+      font-size: 20px;
+    }
+  }
+  .input {
+    width: 100%;
+    padding: 25px 15px 25px 25px;
+    background-color: var.$main-background-color;
+  }
+}
