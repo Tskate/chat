@@ -1,22 +1,31 @@
 import style from "./App.module.scss";
-import ContactsContentPart from "./components/ContactsContentPart/ContactsContentPart";
-import OpenChat from "./components/OpenChat/OpenChat";
-import { createContext, useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import MainPage from "./components/MainPage/MainPage";
+import LoginPage from "./components/LoginPage/LoginPage";
+import { createContext } from "react";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import { useAuthUser } from "./hooks/useAuthUser";
 
-export const ChatContext = createContext();
-
+export const AuthContext = createContext();
 function App() {
-  const [user, setUser] = useState();
-
-  function openChat(userId) {
-    setUser(userId);
-  }
+  const { authUser, setAuthUser } = useAuthUser();
   return (
-    <div className={style.App}>
-      <ChatContext.Provider value={{ openChat: openChat }}>
-        <ContactsContentPart />
-      </ChatContext.Provider>
-      <OpenChat user={user} />
+    <div className={style}>
+      <AuthContext.Provider value={{ authUser, setAuthUser }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route
+              path="/main"
+              element={
+                <PrivateRoute>
+                  <MainPage />
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </AuthContext.Provider>
     </div>
   );
 }

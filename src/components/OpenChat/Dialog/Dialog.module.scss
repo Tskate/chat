@@ -8,7 +8,12 @@
   flex-direction: column;
   padding: 15px 10px;
   background-color: var.$adding-background-color;
-  flex-grow: 1;
+  height: 68vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
   @include mixin.border-bottom;
+  &::-webkit-scrollbar{
+    display: none;
+  }
 
 }

@@ -1,12 +1,12 @@
 import React from "react";
-import ChatView from "../ChatView/ChatView";
-import style from "../ChatList/ChatList.module.scss";
+import style from "./UserList.module.scss";
+import UserView from "../../UserView/UserView";
 
 const UserList = ({ users }) => {
   return (
     <div className={style.content}>
       {users.map((user) => (
-        <ChatView user={user} key={user.id} />
+        <UserView user={user} key={user.id} />
       ))}
     </div>
   );

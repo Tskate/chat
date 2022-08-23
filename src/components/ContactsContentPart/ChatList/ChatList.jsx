@@ -7,7 +7,7 @@ const ChatList = ({ chats }) => {
   return (
     <div className={style.content}>
       {chatSorting(chats).map((chat) => (
-        <ChatView user={chat} key={chat.id} />
+        <ChatView userId={chat.id} key={chat.id} />
       ))}
     </div>
   );

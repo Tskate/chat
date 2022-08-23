@@ -1,27 +1,27 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect, useContext } from "react";
 import Header from "./Header/Header";
 import ChatsBox from "./ChatsBox/ChatsBox";
-import { defaultContactList } from "../../utils/constants/defaultContactList";
+import { ChatContext } from "../MainPage/MainPage";
 
 export const SearchContext = createContext();
 
-const ContactsContentPart = () => {
+const ContactsContentPart = ({ styleForAdaptive }) => {
+  const { contactList } = useContext(ChatContext);
   const [searchResult, setSearchResult] = useState(null);
-  const [request, setRequest] = useState("");
+  const [request, setRequest] = useState(null);
 
   useEffect(() => {
-    if (request !== "") {
+    if (request !== null) {
       setSearchResult(
-        defaultContactList.filter((user) =>
+        contactList.filter((user) =>
           user.name.toLowerCase().match(request.toLowerCase())
         )
       );
-      console.log(searchResult);
     }
   }, [request]);
 
   return (
-    <div>
+    <div className={styleForAdaptive}>
       <SearchContext.Provider value={{ request, setRequest }}>
         <Header />
         <ChatsBox searchResult={searchResult} />

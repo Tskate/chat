@@ -16,6 +16,7 @@
     padding:10px;
     border-radius: 18px;
     min-width: 80px;
+    max-width: 70%;
     &.received {
       background-color: var.$received-msg-bg-color;
       color: white;

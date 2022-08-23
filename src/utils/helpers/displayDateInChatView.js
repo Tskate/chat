@@ -14,5 +14,6 @@ const months = [
 ];
 
 export const displayDateInChatView = (date) => {
-  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+  const dt = new Date(date);
+  return `${months[dt.getMonth()]} ${dt.getDate()}, ${dt.getFullYear()}`;
 };

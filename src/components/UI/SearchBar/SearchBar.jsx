@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./SearchBar.module.scss";
 import searchIcon from "../../../assets/images/icons/search-icon.svg";
 
-const SearchBar = ({ placeholderText, value, onChange }) => {
+const SearchBar = ({ placeholderText, onChange, request }) => {
+  const [value, setValue] = useState("");
+
   return (
     <div className={style.searchBar}>
       <div className={style.icon}>
@@ -11,8 +13,11 @@ const SearchBar = ({ placeholderText, value, onChange }) => {
       <input
         type="text"
         placeholder={placeholderText}
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
+        value={!request ? "" : value}
+        onChange={(e) => {
+          setValue(e.target.value);
+          onChange(e.target.value);
+        }}
       />
     </div>
   );

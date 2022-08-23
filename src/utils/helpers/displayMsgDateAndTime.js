@@ -1,8 +1,10 @@
 export function displayMsgDateAndTime(date) {
-  const time = `${date.getHours() % 12}:${
-    date.getMinutes() < 10 ? "0" : ""
-  }${date.getMinutes()} ${date.getHours() >= 12 ? "PM" : "AM"}`;
-  return `${date.getDate()}/${date.getMonth() + 1}/${date
+  const dt = new Date(date);
+
+  const time = `${dt.getHours() % 12}:${
+    dt.getMinutes() < 10 ? "0" : ""
+  }${dt.getMinutes()} ${dt.getHours() >= 12 ? "PM" : "AM"}`;
+  return `${dt.getDate()}/${dt.getMonth() + 1}/${dt
     .getFullYear()
     .toString()
     .substr(-2)}, ${time}`;
