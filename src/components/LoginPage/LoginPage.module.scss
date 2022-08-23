@@ -1,0 +1,24 @@
+@use '../../assets/styles/mixin.module' as mixin;
+@use '../../assets/styles/variable.module' as var;
+
+.content {
+  @include mixin.flex-centering;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  gap: 20px;
+  background-color: var.$main-background-color;
+  .title {
+    @include mixin.flex-centering;
+    flex-direction: column;
+    gap: 30px;
+    .greetings {
+      color: #323a41;
+      font-size: 30px;
+    }
+    .addingText {
+      color: #7c7b7b;
+      font-size: 18px;
+    }
+  }
+}

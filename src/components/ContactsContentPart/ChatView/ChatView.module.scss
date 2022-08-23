@@ -12,18 +12,18 @@
     flex-direction: column;
     align-items: flex-start;
     font-weight: 300;
-
+    height: 55px;
     .userName {
       font-size: 16px;
       color: var.$user-name-text-color;
     }
     .lastMsg {
-      font-size: 14px;
-      color: var.$border-color;
+     @include mixin.message-preview;
     }
   }
   .date {
     font-size: 12px;
+    min-width: 70px;
     color: #4f4f4e;
     align-self: flex-start;
   }
